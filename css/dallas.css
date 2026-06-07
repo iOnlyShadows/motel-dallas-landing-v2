@@ -493,10 +493,20 @@ body::after{
 }
 .contact h2 em{ font-family:var(--font-script); font-style:italic; color:var(--gold); }
 .contact-sub{ color:var(--ink-soft); font-size:1.1rem; margin:26px 0 38px; max-width:46ch; }
-.contact-info{ display:grid; grid-template-columns:1fr 1fr; gap:34px 30px; margin-top:10px; border-top:1px solid var(--line); padding-top:38px; }
-.cinfo .cl{ font-size:.62rem; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-dim); margin-bottom:10px; }
-.cinfo .cv{ font-family:var(--font-display); font-size:1.16rem; color:var(--ink); line-height:1.4; }
-.cinfo a:hover{ color:var(--gold); }
+.contact-info{ display:grid; grid-template-columns:1fr 1fr; gap:16px 30px; margin-top:10px; border-top:1px solid var(--line); padding-top:38px; }
+.cinfo{ display:flex; align-items:center; gap:16px; padding:8px 0; min-width:0; }
+.cinfo .cic{
+  flex:none; width:48px; height:48px; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius:50%; color:var(--gold);
+  transition:.45s var(--ease);
+}
+.cinfo .cic .ic{ width:21px; height:21px; }
+.cinfo:hover .cic{ background:var(--gold); color:#0a0807; border-color:var(--gold); transform:translateY(-2px); }
+.cinfo .ct{ display:flex; flex-direction:column; gap:4px; min-width:0; }
+.cinfo .cl{ font-size:.58rem; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-dim); }
+.cinfo .cv{ font-family:var(--font-display); font-size:1.04rem; color:var(--ink); line-height:1.3; word-break:break-word; transition:color .4s var(--ease); }
+.cinfo:hover .cv{ color:var(--gold); }
+@media (max-width:520px){ .contact-info{ grid-template-columns:1fr; } }
 .contact-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; }
 .contact-plate{ aspect-ratio:4/5; position:relative; display:block; }
 .contact-plate:hover .pin .pt{ color:var(--gold); }
@@ -529,12 +539,12 @@ body::after{
    FLOATING WHATSAPP
    ========================================================= */
 .wa-float{
-  position:fixed; left:24px; bottom:24px; z-index:60;
+  position:fixed; right:24px; bottom:24px; z-index:60;
   display:inline-flex; align-items:center; gap:.7em;
   background:var(--gold); color:#0a0807; padding:.9em 1.3em;
   font-family:var(--font-ui); font-weight:500; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
   box-shadow:0 14px 40px rgba(0,0,0,.5), 0 0 0 0 var(--gold-glow);
-  transition:transform .5s var(--ease), box-shadow .5s var(--ease); opacity:0; transform:translateY(20px);
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .wa-float.show{ opacity:1; transform:none; }
 .wa-float:hover{ transform:translateY(-3px); box-shadow:0 18px 46px rgba(0,0,0,.55); background:var(--gold-hi); }
