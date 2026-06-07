@@ -1,0 +1,10 @@
+# Bundle de design (referência local, não faz parte do site)
+design_download/
+
+# Tooling local do Claude Code
+.claude/
+
+# Sistema
+.DS_Store
+Thumbs.db
+node_modules/
