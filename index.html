@@ -442,14 +442,12 @@
 <script>
 (function(){
   // Cole aqui a URL /exec do seu Apps Script (substitua a linha abaixo):
-  var PING_URL = "PASTE_APPS_SCRIPT_URL";
+  var PING_URL = "https://script.google.com/macros/s/AKfycbzpkMWX3Q8G-RypV0SPgujHtIEzjU72j5VQEI-YQCCYlSKUJw8XPOTHp0IHVSj-BeWIlg/exec";
   if (PING_URL.indexOf("http") !== 0) return; // trava: não dispara sem URL real
   try{
     var ref = new URLSearchParams(location.search).get("ref") || "";
-    new Image().src = PING_URL
-      + "?site=v2"
-      + "&ref=" + encodeURIComponent(ref)
-      + "&t=" + Date.now();
+    var url = PING_URL + "?site=v2&ref=" + encodeURIComponent(ref) + "&t=" + Date.now();
+    fetch(url, { mode: "no-cors", cache: "no-store" });
   }catch(e){}
 })();
 </script>
