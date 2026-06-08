@@ -30,6 +30,7 @@
     if (!burger || !navMenu) return;
     burger.classList.toggle("open", open);
     navMenu.classList.toggle("open", open);
+    if (nav) nav.classList.toggle("menu-open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
     navMenu.setAttribute("aria-hidden", open ? "false" : "true");
     burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");

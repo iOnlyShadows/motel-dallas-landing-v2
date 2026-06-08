@@ -197,7 +197,8 @@ body::after{
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
-  padding:22px var(--pad); transition:.55s var(--ease);
+  padding:22px var(--pad);
+  transition:padding .55s var(--ease), background .55s var(--ease), border-color .55s var(--ease);
   border-bottom:1px solid transparent;
   background:linear-gradient(to bottom, rgba(5,4,3,.55) 0%, transparent 100%);
 }
@@ -229,6 +230,8 @@ body::after{
 .nav-links a:hover::after{ width:100%; }
 .nav-cta{ display:inline-flex; }
 .nav .btn{ padding:.78em 1.4em; font-size:.68rem; }
+/* keep nav (and burger) above the open overlay so the X stays clickable */
+.nav.menu-open{ z-index:80; background:transparent; border-bottom-color:transparent; }
 /* hamburger button */
 .nav-burger{
   display:none; width:46px; height:46px; padding:0; border:0; cursor:pointer;
