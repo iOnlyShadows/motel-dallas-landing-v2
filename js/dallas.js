@@ -23,6 +23,30 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---- MOBILE MENU ---- */
+  var burger = document.getElementById("navBurger");
+  var navMenu = document.getElementById("navMenu");
+  function setMenu(open) {
+    if (!burger || !navMenu) return;
+    burger.classList.toggle("open", open);
+    navMenu.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    navMenu.setAttribute("aria-hidden", open ? "false" : "true");
+    burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    document.body.classList.toggle("modal-open", open);
+  }
+  if (burger && navMenu) {
+    burger.addEventListener("click", function () {
+      setMenu(!navMenu.classList.contains("open"));
+    });
+    navMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navMenu.classList.contains("open")) setMenu(false);
+    });
+  }
+
   /* ---- HERO parallax ---- */
   var heroBg = document.getElementById("heroBg");
   if (heroBg && !reduceMotion) {
